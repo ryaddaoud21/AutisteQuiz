@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Signin</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,600,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="hero_area" style="
+    width: 100%;
+    height: 31%;
+
+">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="{% url 'homepage'%}">
+              <span>
+              IT'S ALL ARRANGED
+            </span>
+          </a>
+
+          <div class="navbar-collapse" id="">
+            <div class="d-none d-lg-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                 <li class="nav-item">
+                  <a class="nav-link" href="{% url 'playlist' %}">
+                    <img src="{% static 'images/cmd2.png' %}" alt="" />
+
+                    <span>Vedio</span></a>
+                </li>
+                 <li class="nav-item">
+                  <a class="nav-link" href="{% url 'playlist' %}">
+                    <img src="{% static 'images/cmd4.png' %}" alt="" />
+                    <span>Quiz</span></a>
+                </li>
+                {% if not request.user.is_authenticated %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'Login'%}">
+                        <img src="{% static 'images/cmd3.png' %}" alt="" />
+                        <span>Login</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'Signin'%}">
+                        <img src="{% static 'images/cmd1.png' %}" alt="" />
+                        <span>Sign Up</span>
+                      </a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="">
+                        <img src="static/images/cmd3.png" alt="" />
+                        <span>Acount</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'logout'%}">
+                        <img src="static/images/cmd1.png" alt="" />
+                        <span>Logout</span>
+                      </a>
+                    </li>
+              {% endif %}
+              </ul>
+              <form class="form-inline my-2 mb-3 mb-lg-0 mr-5">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+              </form>
+            </div>
+
+            <div class="custom_menu-btn">
+              <button onclick="openNav()">
+                <span class="s-1">
+
+                </span>
+                <span class="s-2">
+
+                </span>
+                <span class="s-3">
+
+                </span>
+              </button>
+            </div>
+            <div id="myNav" class="overlay">
+              <div class="overlay-content">
+                <a href="index.html">HOME</a>
+                <a href="team.html">TEAM</a>
+                <a href="portfolio.html">PORTFOLIO</a>
+
+                <a href="contact.html">CONTACT US</a>
+
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="contact_section layout_padding">
+      <div class="container">
+
+        <h2 style="font-size: xxx-large;" class="">
+          Signin Page
+        </h2>
+         <p>
+           If You have an account , just login  from <a href="{% url 'Login'%}">Login </a>
+        </p>
+      </div>
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-6 ">
+            <form action="">
+              <div class="contact_form-container">
+                <div>
+                  <div>
+                    <label>
+                      Username
+                      <input type="text" name="username" />
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      Email
+                      <input type="email" name="email" />
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      Password
+                      <input type="password" name="password" />
+                    </label>
+                  </div>
+
+
+                  <div>
+                    <label>
+                      Confirm Password
+                      <input type="password" name="password2" />
+                    </label>
+                  </div>
+                  <div class="mt-5">
+                    <button type="submit">
+                      Create
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-6">
+            <div class="contact_img-box">
+            <img src=" {% static 'images/signup1.png' %}" alt="">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  <!-- end info section -->
+  <hr class="footer_hr">
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+    <p>
+      &copy;
+       All Rights Reserved.
+    </p>
+  </section>
+  <!-- footer section -->
+
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %'} "></script>
+
+
+
+  <script>
+    function openNav() {
+      document.getElementById("myNav").classList.toggle("menu_width")
+      document.querySelector(".custom_menu-btn").classList.toggle("menu_btn-style")
+    }
+  </script>
+
+
+</body>
+
+</html>
+<style>
+.hero_area::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    left: 0;
+    top: 0;
+    background-color: #c4d70f;
+    clip-path: polygon(0 0, 100% 0, 100% 73%, 0% 100%);
+}
+
+
+
+</style>

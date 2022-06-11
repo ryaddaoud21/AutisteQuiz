@@ -1,0 +1,74 @@
+body {
+	font-family: 'Oxygen', sans-serif;
+	color: white;
+}
+.clear {
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+.container {
+	width: 800px;
+	margin-left: auto;
+	margin-top: 50px;
+	display: table;
+}
+.user-choice {
+	height: 200px;
+	width: 200px;
+	font-size: 2em;
+	float: left;
+	margin: 10px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 200px;
+}
+#option-a, #option-two, #option-z {
+	background-color: red;
+}
+#option-b, #option-three, #option-x {
+	background-color: blue;
+}
+#option-c, #option-one, #option-y {
+	background-color: green;
+}
+#target-color {
+	height: 200px;
+	width: 200px;
+	font-size: 2em;
+	float: left;
+	margin: 10px 10px 10px 50px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 200px;
+	background-color: red;
+}
+#reset {
+	display: block;
+	margin: 0 auto;
+	width: 75px;
+	height: 30px;
+	background-color: red;
+	font-size: 1.2em;
+	color: white;
+	border: 1px solid black;
+	border-radius: 4px;
+}
+#win-lose {
+	color: black;
+	font-size: 1.5em;
+	width: 300px;
+	margin: 10px auto 0 auto;
+	text-align: center;
+	font-weight: bold;
+}
+#target-color {
+	float: right;
+	display: inline-block;
+	margin: 272px 420px 0 0;
+}
+.row {
+	width: 670px;
+	margin-left: auto;
+	margin-right: auto;
+}

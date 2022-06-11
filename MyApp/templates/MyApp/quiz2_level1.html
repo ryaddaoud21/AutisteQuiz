@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>IT'S ALL ARRANGED</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+   <link rel='stylesheet' href='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+    <link rel="stylesheet" href="{% static 'css/game2.css' %}">
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,600,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<div>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="{% url 'homepage'%}">
+            <span>
+              IT'S ALL ARRANGED
+            </span>
+          </a>
+
+          <div class="navbar-collapse" id="">
+            <div class="d-none d-lg-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                 <li class="nav-item">
+                  <a class="nav-link" href="{% url 'playlist' %}">
+                    <img src="{% static 'images/cmd2.png' %}" alt="" />
+                    <span>Vedio</span></a>
+                </li>
+                 <li class="nav-item">
+                          <a class="nav-link" href="{% url 'level' %}">
+                            <img src="{% static 'images/volume-control.png' %}" alt="" />
+                            <span>Level</span></a>
+
+                 </li>
+                {% if not request.user.is_authenticated %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'Login'%}">
+                        <img src="{% static 'images/cmd3.png' %}" alt="" />
+                        <span>Login</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'Signin'%}">
+                        <img src="{% static 'images/cmd1.png' %}" alt="" />
+                        <span>Sign Up</span>
+                      </a>
+                      </li>
+
+                {% else %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'logout'%}">
+                        <img src="{% static 'images/cmd1.png' %}" alt="" />
+                        <span>Logout</span>
+                      </a>
+                    </li>
+              {% endif %}
+              </ul>
+              <form class="form-inline my-2 mb-3 mb-lg-0 mr-5">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+              </form>
+            </div>
+
+            <div class="custom_menu-btn">
+              <button onclick="openNav()">
+                <span class="s-1">
+
+                </span>
+                <span class="s-2">
+
+                </span>
+                <span class="s-3">
+
+                </span>
+              </button>
+            </div>
+            <div id="myNav" class="overlay">
+              <div class="overlay-content">
+                <a href="{% url 'homepage' %}">HOME</a>
+                <a href="{% url 'level' %}">LEVEL</a>
+                <a href="{% url 'playlist' %}l">OUR PLAYLIST</a>
+                <a href="{% url 'logout' %}l">LOGOUT</a>
+
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+
+    <!-- end slider section -->
+  </div>
+    <div style="margin:50px;">
+        <div style="width:100%; height:25%; z-index:1;">
+        <div id="square" class="selectable" style="float:left;"></div>
+        <div id="pacmaninside" style="float:right;" class="destination"></div>
+
+    </div>
+
+    <div style="width:100%; height:25%; z-index:2;">
+        <div id="circle" class="selectable" style="float:left;"></div>
+        <div id="triangle-upinside" style="float:right;" class="destination"></div>
+    </div>
+
+
+    <div style="width:100%; height:25%; z-index:3;">
+        <div id="triangle-up" class="selectable" style="float:left;"></div>
+        <div id="circleinside" style="float:right;" class="destination"></div>
+    </div>
+
+    <div style="width:100%; height:25%; z-index:4;">
+        <div id="pacman" class="selectable" style="float:left;"></div>
+        <div id="squareinside" style="float:right;" class="destination"></div>
+    </div>
+
+    <div id="centerText" style="width:100%; height:100%; z-index:0;" align="center">
+        Match the Shapes!
+    </div>
+    </div>
+
+
+    <!-- partial -->
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+    <script src="{% static 'js/quiz2level1.js'%}"></script>
+
+</body>
+
+</html>
+
+
+
+<style>
+  .check{
+    border: none;
+    background-color: #a0e711;
+    color: white;
+    padding: 12px 45px;
+    font-size: 14px;
+    border-radius: 25px;
+    text-transform: uppercase;
+  }
+  .hero_area::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 35%;
+    left: 0;
+    top: 0;
+    background-color: #c4d70f;
+    clip-path: polygon(0 0, 100% 0, 100% 73%, 0% 100%);
+
+}
+.hero_area {
+    height: 40vh;
+    position: relative;
+    }
+
+
+</style>

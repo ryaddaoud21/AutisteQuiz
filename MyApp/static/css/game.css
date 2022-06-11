@@ -1,0 +1,70 @@
+.fullword{
+display: table;
+margin: -350px auto;
+
+}
+.container {
+  opacity: 0.5;
+  margin-left:8px;
+//background-color: green;
+  background:#999999;
+width:60px;
+display:inline-block;
+    padding:6px;
+    border-radius:16px;
+    border-top:8px solid rgba(0,0,0,0.2);
+}
+.centered {
+display: table;
+margin: 0 auto;
+//background-color: red;
+   // height:200px;
+}
+.word{
+//background-color: blue;
+  //color:#555 !important;
+  color:#555 !important;
+}
+
+.letter {
+  //transform: rotate(-8deg);
+       font-size:60px;
+         color: #FF3264;
+  //color:#0083DC;
+         text-shadow: 0px 0px 2px rgba(0,0,0,1), 0px 0px 2px rgba(0,0,0,1);     line-height:6px;
+    display:inline-block;
+  position:absolute;
+  //transform: rotate(0deg) !important;
+       }
+.word.letter {
+  position:relative;
+  transform: rotate(0deg) !important;
+       }
+.letter:hover {
+  transform: rotate(0deg) !important;
+       }
+h1[title]:before{ content:attr(title); display:none; }
+h1[title]:hover:before{ content:attr(title); display:none; }
+.zichtbaar{
+  display:block !important;
+}
+.letternorotation{
+  transform: rotate(0deg) !important;
+       }
+.letter:before{
+    content: attr(title);
+    //color: rgba(0, 132, 220,1);
+    position: absolute;
+    //left:8px;
+    left:0px;
+}
+.letter:after{
+    content: attr(title);
+    color: transparent;
+    position: absolute;
+       font-size:58px;
+    letter-spacing: 0.86px;
+    left:0px;
+    //left:8px;
+         text-shadow: 0px 0px 2px rgba(255,255,255,0.7);
+}

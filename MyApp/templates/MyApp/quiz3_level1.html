@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>IT'S ALL ARRANGED</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+   <link rel='stylesheet' href='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+    <link rel="stylesheet" href="{% static 'css/game.css' %}">
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,600,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/game3.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+<div>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="{% url 'homepage'%}">
+            <span>
+              IT'S ALL ARRANGED
+            </span>
+          </a>
+
+          <div class="navbar-collapse" id="">
+            <div class="d-none d-lg-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                 <li class="nav-item">
+                  <a class="nav-link" href="{% url 'playlist' %}">
+                    <img src="{% static 'images/cmd2.png' %}" alt="" />
+                    <span>Vedio</span></a>
+                </li>
+                 <li class="nav-item">
+                          <a class="nav-link" href="{% url 'level' %}">
+                            <img src="{% static 'images/volume-control.png' %}" alt="" />
+                            <span>Level</span></a>
+
+                 </li>
+                {% if not request.user.is_authenticated %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'Login'%}">
+                        <img src="{% static 'images/cmd3.png' %}" alt="" />
+                        <span>Login</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'Signin'%}">
+                        <img src="{% static 'images/cmd1.png' %}" alt="" />
+                        <span>Sign Up</span>
+                      </a>
+                      </li>
+
+                {% else %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'logout'%}">
+                        <img src="{% static 'images/cmd1.png' %}" alt="" />
+                        <span>Logout</span>
+                      </a>
+                    </li>
+              {% endif %}
+              </ul>
+              <form class="form-inline my-2 mb-3 mb-lg-0 mr-5">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+              </form>
+            </div>
+
+            <div class="custom_menu-btn">
+              <button onclick="openNav()">
+                <span class="s-1">
+
+                </span>
+                <span class="s-2">
+
+                </span>
+                <span class="s-3">
+
+                </span>
+              </button>
+            </div>
+            <div id="myNav" class="overlay">
+              <div class="overlay-content">
+                <a href="{% url 'homepage' %}">HOME</a>
+                <a href="{% url 'level' %}">LEVEL</a>
+                <a href="{% url 'playlist' %}l">OUR PLAYLIST</a>
+                <a href="{% url 'logout' %}l">LOGOUT</a>
+
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+
+    <!-- end slider section -->
+  </div>
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="{% url 'homepage'%}">
+            <span>
+              IT'S ALL ARRANGED
+            </span>
+          </a>
+
+          <div class="navbar-collapse" id="">
+            <div class="d-none d-lg-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                 <li class="nav-item">
+                  <a class="nav-link" href="{% url 'playlist' %}">
+                    <img src="{% static 'images/cmd2.png' %}" alt="" />
+                    <span>Vedio</span></a>
+                </li>
+                 <li class="nav-item">
+                          <a class="nav-link" href="">
+                            <img src="{% static 'images/volume-control.png' %}" alt="" />
+                            <span>Level</span></a>
+
+                 </li>
+                {% if not request.user.is_authenticated %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'Login'%}">
+                        <img src="{% static 'images/cmd3.png' %}" alt="" />
+                        <span>Login</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'Signin'%}">
+                        <img src="{% static 'images/cmd1.png' %}" alt="" />
+                        <span>Sign Up</span>
+                      </a>
+                      </li>
+
+                {% else %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'logout'%}">
+                        <img src="{% static 'images/cmd1.png' %}" alt="" />
+                        <span>Logout</span>
+                      </a>
+                    </li>
+              {% endif %}
+              </ul>
+              <form class="form-inline my-2 mb-3 mb-lg-0 mr-5">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+              </form>
+            </div>
+
+            <div class="custom_menu-btn">
+              <button onclick="openNav()">
+                <span class="s-1">
+
+                </span>
+                <span class="s-2">
+
+                </span>
+                <span class="s-3">
+
+                </span>
+              </button>
+            </div>
+            <div id="myNav" class="overlay">
+              <div class="overlay-content">
+                <a href="index.html">HOME</a>
+                <a href="team.html">QUIZZ</a>
+                <a href="portfolio.html">OUR PLAYLIST</a>
+                <a href="contact.html">CONTACT US</a>
+
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <div style="    PADDING: 17px 17px 29px 160px;
+">
+    <div id="target-color">
+
+  Target Color!</div>
+
+<div class="container">
+
+  <p id="win-lose">Let's Play!</p>
+
+  <div class="row">
+
+    <div class="user-choice red first-row" id="option-a">A</div>
+
+    <div class="user-choice blue first-row" id="option-b">B</div>
+
+    <div class="user-choice green first-row" id="option-c">C</div>
+
+  </div>
+
+  <div class="clear"></div>
+
+  <div class="row">
+
+    <div class="user-choice green second-row" id="option-one">One</div>
+
+    <div class="user-choice red second-row" id="option-two">Two</div>
+
+    <div class="user-choice blue second-row" id="option-three">Three</div>
+
+  </div>
+
+  <div class="clear"></div>
+
+  <div class="row">
+
+    <div class="user-choice blue third-row" id="option-x">X</div>
+
+    <div class="user-choice green third-row" id="option-y">Y</div>
+
+    <div class="user-choice red third-row" id="option-z">Z</div>
+
+  </div>
+
+  <div class="clear"></div>
+
+  <button id="reset">Reset</button>
+
+</div>
+  </div>
+
+    <!-- partial -->
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+    <script src="{% static 'js/quiz3level1.js'%}"></script>
+
+</body>
+
+</html>
+
+
+
+<style>
+  .check{
+    border: none;
+    background-color: #a0e711;
+    color: white;
+    padding: 12px 45px;
+    font-size: 14px;
+    border-radius: 25px;
+    text-transform: uppercase;
+  }
+  .hero_area::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 65%;
+    left: 0;
+    top: 0;
+    background-color: #c4d70f;
+    clip-path: polygon(0 0, 100% 0, 100% 73%, 0% 100%);
+}
+
+.hero_area {
+    height: 20vh;
+    position: relative;
+}
+
+
+</style>
