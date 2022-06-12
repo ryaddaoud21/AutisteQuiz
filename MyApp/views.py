@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.shortcuts import render, redirect
 from .models import *
+import RecTulips
 
 # Create your views here.
 
@@ -11,6 +12,9 @@ def homeview(request):
     cours = Cours.objects.all()
     levels = Level.objects.all()
     rating = Review.objects.all()
+    if(request.user.id != 0):
+        print(request.user.id)
+        print(RecTulips.TOP10(request.user.id))
     context = {'cours':cours,'levels':levels,'rating':rating}
     return render(request,'MyApp/index.html',context)
 
@@ -19,6 +23,11 @@ def coursdetail(request, cour_id):
     if request.method == 'POST':
         RATE = request.POST['rate']
         print(RATE)
+        print(cour_id)
+        current_user = request.user
+        print(current_user.id)
+        RecTulips.Rate(current_user.id,cour_id,RATE,'2022')
+
         review = Review(cours=cours, rating=RATE)
         cours.Rating= RATE
         cours.save()
