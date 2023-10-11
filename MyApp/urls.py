@@ -26,5 +26,6 @@ urlpatterns = [
 
 
     path('Level/3/Quiz/1',quiz1level3 , name='quiz1level3'),
+    path('Recommendation/',Recommendation , name='Recommendation'),
 
 ]

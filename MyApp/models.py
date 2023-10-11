@@ -4,9 +4,18 @@ from django.contrib.auth.models import User
 
 
 
-
+class Utilisateu(models.Model):
+    CHOICES = (
+        ('Homme', 'Homme'),
+        ('Femme', 'Femme'),
+    )
+    user = models.OneToOneField(User,null=True, blank=True, on_delete=models.CASCADE)
+    name = models.CharField(max_length=200, null=True)
+    email = models.CharField(max_length=200,null=True)
+    Sex =models.CharField(max_length=50 ,choices=CHOICES,null=True)
 
 class Level(models.Model):
+
     Level = models.IntegerField(blank=False, null=False)
     Description = models.CharField(max_length=500,blank=False, null=False)
     image = models.ImageField(blank=False, null=False)
@@ -31,14 +40,6 @@ class Cours(models.Model):
 
     def __str__(self):
         return self.title
-
-
-
-
-
-
-
-
 
 
 

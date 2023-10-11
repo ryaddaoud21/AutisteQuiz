@@ -3,7 +3,6 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.shortcuts import render, redirect
 from .models import *
-import RecTulips
 
 # Create your views here.
 
@@ -12,22 +11,23 @@ def homeview(request):
     cours = Cours.objects.all()
     levels = Level.objects.all()
     rating = Review.objects.all()
-    if(request.user.id != 0):
-        print(request.user.id)
-        print(RecTulips.TOP10(request.user.id))
+
     context = {'cours':cours,'levels':levels,'rating':rating}
     return render(request,'MyApp/index.html',context)
+
+
+def Recommendation(request):
+    cours = Cours.objects.all()
+    levels = Level.objects.all()
+    rating = Review.objects.all()
+
+    context = {'cours':cours,'levels':levels,'rating':rating}
+    return render(request,'MyApp/Rec_vedio.html',context)
 
 def coursdetail(request, cour_id):
     cours = Cours.objects.get(pk=cour_id)
     if request.method == 'POST':
         RATE = request.POST['rate']
-        print(RATE)
-        print(cour_id)
-        current_user = request.user
-        print(current_user.id)
-        RecTulips.Rate(current_user.id,cour_id,RATE,'2022')
-
         review = Review(cours=cours, rating=RATE)
         cours.Rating= RATE
         cours.save()
@@ -58,6 +58,9 @@ def LoginViewPage(request):
     return render(request,'MyApp/LoginPage.html',context)
 
 def SigninView(request):
+
+
+
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -66,6 +69,8 @@ def SigninView(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
+            messages.success(request, "Registration successful")
+
             return redirect('homepage')
     else:
         form = UserCreationForm()
@@ -87,7 +92,6 @@ def Levelpage(request,level_id):
     cours = Cours.objects.filter(level=level_id)
     context = {'cours': cours, 'level': level}
     return render(request,'MyApp/levelpage.html',context)
-
 
 def level(request):
     cours = Cours.objects.all()
